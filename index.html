@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#canvas {
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width = "500" height="500" id = "canvas">
+		
+	</canvas>
+	<script type="text/javascript">
+var c = document.getElementById("canvas");
+var ctx = c.getContext("2d");
+ctx.moveTo(50,50);
+ctx.lineTo(300,490);
+ctx.stroke();
+
+var grd = ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"white");
+
+// Fill with gradient
+ctx.fillStyle = grd;
+
+ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.stroke();
+ctx.fill();
+
+ctx.font = "40px Cursive";
+ctx.fillStyle = 'orange';
+ctx.fillText('Hello World', 190, 130);
+ctx.strokeText("Hello World",190,130);
+
+//ctx.fill();
+
+// Create an image element
+var img = document.createElement('IMG');
+
+// When the image is loaded, draw it
+img.onload = function () {
+    ctx.drawImage(img, 240, 140, 250, 350);
+}
+
+// Specify the src to load the image
+img.src = "https://pp.vk.me/c638218/v638218558/1b367/HB_zDlW2H6I.jpg";
+	</script>
+</body>
+</html>
